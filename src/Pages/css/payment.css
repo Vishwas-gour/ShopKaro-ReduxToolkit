@@ -1,0 +1,9 @@
+/* =============== */
+.payment {
+    width: 50vw;
+    min-width: 25rem;
+    padding: 2rem;
+    margin: 2rem auto;
+    background-color: rgb(212, 212, 212);
+    border-radius: 1rem;
+}

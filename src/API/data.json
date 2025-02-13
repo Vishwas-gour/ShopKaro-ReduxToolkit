@@ -1,0 +1,243 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Apple Watch Series 9",
+      "price": 41900,
+      "quantity": 1,
+      "imgUrl": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1694711568/Croma%20Assets/Communication/Wearable%20Devices/Images/301026_0_bj529n.png?tr=w-640",
+      "hoverUrl": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1694711571/Croma%20Assets/Communication/Wearable%20Devices/Images/301026_1_tpotwx.png?tr=w-640",
+      "about": "Advanced health tracking and seamless integration with iOS.",
+      "detailed_description": "Apple Watch Series 9 comes with an always-on Retina display, ECG, blood oxygen monitoring, and a fast processor for smooth performance. Ideal for fitness enthusiasts and professionals.",
+      "category": "Smart Watches",
+      "names": "Apple Watch Series 9, Apple watch, Series 9, smartwatch, fitness watch, health tracker"
+    },
+    {
+      "id": "2",
+      "name": "Samsung Galaxy Watch 6",
+      "price": 49999,
+      "quantity": 1,
+      "imgUrl": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1721399023/Croma%20Assets/Communication/Wearable%20Devices/Images/308296_0_nuz1ma.png?tr=w-360",
+      "hoverUrl": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1721399026/Croma%20Assets/Communication/Wearable%20Devices/Images/308296_3_duds3p.png?tr=w-360",
+      "about": "Premium design with Wear OS and advanced health features.",
+      "detailed_description": "Samsung Galaxy Watch 6 offers ECG monitoring, body composition analysis, and long battery life. Runs on Wear OS for better app support.",
+      "category": "Smart Watches",
+      "names": "Samsung Galaxy Watch 6, Galaxy Watch 6, Samsung Watch 6, smartwatch, Wear OS watch, health watch"
+    },
+    {
+      "id": "3",
+      "name": "Garmin Fenix 7",
+      "price": 69999,
+      "quantity": 1,
+      "imgUrl": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1721399080/Croma%20Assets/Communication/Wearable%20Devices/Images/308283_0_xpvqjm.png?tr=w-360",
+      "hoverUrl": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1721399085/Croma%20Assets/Communication/Wearable%20Devices/Images/308283_7_kvbvsk.png?tr=w-360",
+      "about": "Rugged multi-sport GPS smartwatch with long battery life.",
+      "detailed_description": "Garmin Fenix 7 is built for adventure lovers, featuring topographical maps, solar charging, and advanced fitness tracking.",
+      "category": "Smart Watches",
+      "names": "Garmin Fenix 7, Fenix 7, Garmin watch, GPS watch, sports watch, adventure watch"
+    },
+    {
+      "id": "4",
+      "name": "Amazfit GTR 4",
+      "price": 16999,
+      "quantity": 1,
+      "imgUrl": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1689330156/Croma%20Assets/Wearable/Wearable%20Devices/Images/258360_s40lg0.png?tr=w-360",
+      "hoverUrl": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1675188582/Croma%20Assets/Communication/Wearable%20Devices/Images/258360_3_gnrnsz.png?tr=w-360",
+      "about": "Stylish smartwatch with an AMOLED display and strong battery life.",
+      "detailed_description": "Amazfit GTR 4 offers a bright AMOLED screen, built-in GPS, and multiple sports modes, making it perfect for everyday wear.",
+      "category": "Smart Watches",
+      "names": "Amazfit GTR 4, GTR 4, Amazfit watch, AMOLED smartwatch, fitness watch"
+    },
+    {
+      "id": "5",
+      "name": "Fitbit Versa 4",
+      "price": 22999,
+      "quantity": 1,
+      "imgUrl": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1706882831/Croma%20Assets/Communication/Wearable%20Devices/Images/302168_0_rqwajf.png?tr=w-360",
+      "hoverUrl": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1706882837/Croma%20Assets/Communication/Wearable%20Devices/Images/302168_12_vhowyg.jpg?tr=w-360",
+      "about": "Lightweight fitness smartwatch with excellent health tracking.",
+      "detailed_description": "Fitbit Versa 4 provides sleep tracking, SpO2 monitoring, and personalized workout guidance, great for fitness-conscious users.",
+      "category": "Smart Watches",
+      "names": "Fitbit Versa 4, Versa 4, Fitbit watch, fitness tracker, health watch"
+    },
+    {
+      "id": "6",
+      "name": "OnePlus Watch 2",
+      "price": 18999,
+      "quantity": 1,
+      "imgUrl": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1715234288/Croma%20Assets/Communication/Wearable%20Devices/Images/305156_0_tqncyd.png?tr=w-400",
+      "hoverUrl": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1715234296/Croma%20Assets/Communication/Wearable%20Devices/Images/305156_5_ekdvh0.png?tr=w-360",
+      "about": "A premium smartwatch with fast charging and smooth UI.",
+      "detailed_description": "OnePlus Watch 2 features a sleek design, AMOLED display, and long-lasting battery with Warp Charge support.",
+      "category": "Smart Watches",
+      "names": "OnePlus Watch 2, Watch 2, OnePlus smartwatch, AMOLED watch, fitness watch"
+    },
+    {
+      "id": "7",
+      "name": "Realme Watch 3 Pro",
+      "price": 5999,
+      "quantity": 1,
+      "imgUrl": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1735504132/Croma%20Assets/Wearable/Wearable%20Devices/Images/308782_uzqwmi.png?tr=w-360",
+      "hoverUrl": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1735504133/Croma%20Assets/Wearable/Wearable%20Devices/Images/308782_7_y3sal4.png?tr=w-360",
+      "about": "Affordable smartwatch with Bluetooth calling and AMOLED display.",
+      "detailed_description": "Realme Watch 3 Pro is a budget-friendly smartwatch offering a premium look, accurate health monitoring, and Bluetooth calling support.",
+      "category": "Smart Watches",
+      "names": "Realme Watch 3 Pro, Watch 3 Pro, Realme smartwatch, Bluetooth watch, budget watch"
+    },
+    {
+      "id": "8",
+      "name": "Boat Xtend Pro",
+      "price": 3499,
+      "quantity": 1,
+      "imgUrl": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1736840679/Croma%20Assets/Wearable/Wearable%20Devices/Images/312706_kfpb0s.png?tr=w-360",
+      "hoverUrl": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1736840681/Croma%20Assets/Wearable/Wearable%20Devices/Images/312706_10_oqgfsq.png?tr=w-360",
+      "about": "Feature-packed smartwatch at an affordable price.",
+      "detailed_description": "Boat Xtend Pro comes with Alexa built-in, multiple sports modes, and a vibrant touchscreen display for everyday convenience.",
+      "category": "Smart Watches",
+      "names": "Boat Xtend Pro, Xtend Pro, Boat smartwatch, Alexa watch, budget smartwatch"
+    },
+    {
+      "id": "11",
+      "name": "Samsung Galaxy S24 Ultra",
+      "price": 129999,
+      "quantity": 1,
+      "imgUrl": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1705640288/Croma%20Assets/Communication/Mobiles/Images/303838_oqpio4.png?tr=w-360",
+      "hoverUrl": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1706712949/Croma%20Assets/Communication/Mobiles/Images/303838_1_l9ya6v.png?tr=w-360",
+      "about": "A premium flagship smartphone with a powerful camera and AI-enhanced features.",
+      "detailed_description": "The Samsung Galaxy S24 Ultra features a 200MP quad-camera system, Snapdragon 8 Gen 3 processor, 5000mAh battery, and a stunning 6.8-inch Dynamic AMOLED 2X display with a 120Hz refresh rate. It also supports the S Pen, making it an ideal choice for productivity and creativity.",
+      "category": "smart mobiles",
+      "names": "Samsung Galaxy S24 Ultra, Galaxy S24 Ultra, S24 Ultra, Samsung phone, flagship phone, camera phone"
+    },
+    {
+      "id": "12",
+      "name": "Apple iPhone 15 Pro Max",
+      "price": 159900,
+      "quantity": 1,
+      "imgUrl": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1708678757/Croma%20Assets/Communication/Mobiles/Images/300824_0_opb0vg.png?tr=w-360",
+      "hoverUrl": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1708678761/Croma%20Assets/Communication/Mobiles/Images/300824_5_ceknkg.png?tr=w-360",
+      "about": "Apple's most advanced iPhone with a titanium design and A17 Pro chip.",
+      "detailed_description": "The iPhone 15 Pro Max comes with a 6.7-inch Super Retina XDR display, a powerful A17 Pro chip, a triple-camera setup with a periscope zoom lens, and USB-C connectivity. Built with aerospace-grade titanium, it is lighter and more durable than its predecessors.",
+      "category": "smart mobiles",
+      "names": "Apple iPhone 15 Pro Max, iPhone 15 Pro Max, iPhone 15, Pro Max, Apple phone, flagship phone"
+    }
+  ],
+  "review": [
+    {
+      "id": "53aa",
+      "gmail": "vishwasGour2002",
+      "comment": "noce pro!",
+      "star": "4",
+      "productId": 1,
+      "like": 0,
+      "dislike": 0
+    },
+    {
+      "id": "fdd0",
+      "gmail": "vishwasGour2002",
+      "comment": "osmm.",
+      "star": "3",
+      "productId": 1,
+      "like": 0,
+      "dislike": 0
+    },
+    {
+      "id": "921e",
+      "star": "2",
+      "gmail": "satyam",
+      "comment": "bad",
+      "productId": 1,
+      "like": 0,
+      "dislike": 0
+    },
+    {
+      "id": "b6b3",
+      "gmail": "1234",
+      "comment": "123",
+      "star": "5",
+      "productId": 1,
+      "like": 0,
+      "dislike": 0
+    },
+    {
+      "id": "06d4",
+      "gmail": "12",
+      "comment": "12",
+      "star": "3",
+      "productId": 2,
+      "like": 0,
+      "dislike": 0
+    },
+    {
+      "id": "2fe9",
+      "gmail": "12",
+      "comment": "12",
+      "star": "2",
+      "productId": 2,
+      "like": 0,
+      "dislike": 0
+    },
+    {
+      "id": "0c72",
+      "gmail": "32",
+      "comment": "12",
+      "star": "4",
+      "productId": 3,
+      "like": 0,
+      "dislike": 0
+    },
+    {
+      "id": "d63a",
+      "gmail": "dsfg",
+      "comment": "sdfg",
+      "star": "5",
+      "productId": 2,
+      "like": 0,
+      "dislike": 0
+    },
+    {
+      "id": "fc6f",
+      "gmail": "sdfg",
+      "comment": "dsfg",
+      "star": "1",
+      "productId": 2,
+      "like": 0,
+      "dislike": 0
+    },
+    {
+      "id": "f2ff",
+      "gmail": "12",
+      "comment": "12",
+      "star": "23",
+      "productId": 2,
+      "like": 0,
+      "dislike": 0
+    },
+    {
+      "id": "868f",
+      "gmail": "ljiffgh",
+      "comment": "jghhij",
+      "star": "4",
+      "productId": 7,
+      "like": 0,
+      "dislike": 0
+    },
+    {
+      "id": "b367",
+      "gmail": "loda ]lqepl",
+      "comment": "ehf yw",
+      "star": "8",
+      "productId": 2,
+      "like": 0,
+      "dislike": 0
+    },
+    {
+      "id": "f358",
+      "gmail": "sad",
+      "comment": "scv",
+      "star": "1",
+      "productId": 7,
+      "like": 0,
+      "dislike": 0
+    }
+  ]
+}

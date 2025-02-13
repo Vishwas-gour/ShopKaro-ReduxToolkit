@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Varela+Round&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", serif;
+    font-weight: 400;
+}
+
+:root{
+    
+    scrollbar-width: none;
+}
+/* for removing up and down arrows */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+button {
+    position: relative;
+    margin: 0;
+    padding: 0.5em 0.5em;
+    cursor: pointer;
+    border: none;
+    text-transform: uppercase;
+    background-color: #333;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 300;
+    font-family: inherit;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+    min-width: fit-content;
+}
+
+button:hover {
+    animation: sh0 0.5s ease-in-out both;
+}
+
+@keyframes sh0 {
+    0% {
+        transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+
+    25% {
+        transform: rotate(7deg) translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: rotate(-7deg) translate3d(0, 0, 0);
+    }
+
+    75% {
+        transform: rotate(1deg) translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+}
+
+button:hover span {
+    animation: storm 0.7s ease-in-out both;
+    animation-delay: 0.06s;
+}
+
+
+
+
+
+input[type="number"] {
+    width: 40px;
+}
+
+
+h1 {
+    text-align: center;
+    color: #fff;
+    padding: 0.4rem;
+    margin: 1rem;
+    background-color: rgb(129, 129, 234);
+}
+/*  NAV BAr */
+.logo {
+    padding: 0.5rem 0px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+}
+
+.logo img {
+    height: 4rem;
+}
+
+@media (max-width:600px) {
+
+    .logo img {
+        height: 11vw;
+    }
+}
+
+#container {
+    padding: 0 10%;
+}
+
+.section-heading {
+    text-align: center;
+}
+
+
+
+
