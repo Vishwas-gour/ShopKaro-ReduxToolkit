@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../Redux/CartSlice';
-import "./CSS/card.css"
+import "./css/card.css"
 import StarAvg from './StarAvg';
 
 function Cards() {
