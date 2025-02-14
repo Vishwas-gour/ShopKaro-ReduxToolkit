@@ -5,7 +5,6 @@ function Home() {
     return (
       <>
       <Slide/>
-      <Slide/>
       <Cards/>
       </>
   )
