@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Link } from 'react-router-dom';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -14,6 +14,7 @@ function MyNav() {
                     <Nav className="me-auto">
                         <Nav.Link as={Link} to="home">Home</Nav.Link>
                         <Nav.Link as={Link} to="category">Category</Nav.Link>
+                        <Nav.Link as={Link} to="cart">Cart</Nav.Link>
                         <Nav.Link as={Link} to="cart">Cart</Nav.Link>
                     </Nav>
                 </Container>
