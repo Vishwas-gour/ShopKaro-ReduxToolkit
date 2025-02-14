@@ -1,6 +1,6 @@
 
 import { createSlice } from "@reduxjs/toolkit";
-import { message } from "antd";
+// import { message } from "antd";
 const Slice = createSlice({
   name: "cartSlice",
   initialState: {
