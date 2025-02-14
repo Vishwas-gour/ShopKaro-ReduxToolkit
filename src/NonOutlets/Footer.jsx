@@ -1,3 +1,4 @@
+
 import React from 'react'
 import "./css/footer.css"
 
@@ -5,13 +6,13 @@ function Footer() {
     return (
 
         <footer className="footer">
-        <div class="footer-container">
-            <div class="footer-section about">
+        <div className="footer-container">
+            <div className="footer-section about">
                 <h2>About Us</h2>
                 <p>We provide the best quality products at unbeatable prices. Shop with confidence!</p>
             </div>
     
-            <div class="footer-section customer-service">
+            <div className="footer-section customer-service">
                 <h2>Customer Service</h2>
                 <ul>
                     <li><a href="#">Shipping Policy</a></li>
@@ -21,7 +22,7 @@ function Footer() {
                 </ul>
             </div>
     
-            <div class="footer-section contact">
+            <div className="footer-section contact">
                 <h2>Contact Us</h2>
                 <p>Have any questions? Feel free to reach out.</p>
                 <p>Email: support@yourecommercesite.com</p>
@@ -29,7 +30,7 @@ function Footer() {
             </div>
         </div>
     
-        <div class="footer-bottom">
+        <div className="footer-bottom">
             <p>&copy; 2025 YourEcommerceSite. All Rights Reserved.</p>
         </div>
     </footer>
