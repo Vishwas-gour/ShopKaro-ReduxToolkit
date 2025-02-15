@@ -80,8 +80,8 @@ function renderCard() {
                 </>
             )}
             <div className='search-parent'>
-                <input className="search-input" type="text" placeholder='Search Item' value={input} onChange={(e) => setInput(e.target.value.toLowerCase())} />
-                <select className="search-input"  onChange={(e) => setSelect(e.target.value)} value={select}>
+                <input className="search-input search" type="text" placeholder='Search Item' value={input} onChange={(e) => setInput(e.target.value.toLowerCase())} />
+                <select className="search-input category"  onChange={(e) => setSelect(e.target.value)} value={select}>
                     <option value="">Select Catogery</option>
                     <option value="smart watch">Smart Watch</option>
                     <option value="smart mobiles">Smart Mobiles</option>

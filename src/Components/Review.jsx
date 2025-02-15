@@ -4,15 +4,19 @@ import { useEffect, useState } from 'react';
 import "./css/review.css"
 import { BiLike } from "react-icons/bi";
 import { BiDislike } from "react-icons/bi";
-
-//  (Reiviews should be Reviews).*****************************************
 import { starPrintForReviews } from '../Functions/starPrint';
+import { FaStar } from "react-icons/fa"
+//  (Reiviews should be Reviews).*****************************************
+
+
 
 
 function Review({ id }) {
   const [input, setInput] = useState({});
   const [reviews, setReviews] = useState([]);
   const [likeDislike, setLikeDislike] = useState(0);
+  const [onClick, setOnClick] = useState(0);
+  const [onHover, setOnHover] = useState(0);
 
   id = +id;
   // ==================== INITIAL RENDERING
@@ -20,7 +24,7 @@ function Review({ id }) {
   function loadReviews() {
     const otherReviews = `http://localhost:3000/review/?productId=${id}`;
     axios.get(otherReviews).then((res) => setReviews(res.data))
-    .catch((err) => console.error("Error => :", err));
+      .catch((err) => console.error("Error => :", err));
   }
 
   useEffect(() => {
@@ -28,13 +32,43 @@ function Review({ id }) {
   }, [id]);
 
 
+  function printEmoji() {
+    if (onClick == 0 ||onHover == 0) return '0';
+    if (onClick == 1 ||onHover == 1) return '1';
+    if (onClick == 2 ||onHover == 2) return '2';
+    if (onClick == 3 ||onHover == 3) return '3';
+    if (onClick == 4 ||onHover == 4) return '4';
+    if (onClick == 5 ||onHover == 5) return '5';
+  }
+
+  // ==================== COLOR THE RATING STARS
+  function colorTheStars() {
+    return (
+      <>
+        <div className="star5">
+          {[...Array(5)].map((_, indx) => {
+            return (
+              <FaStar key={indx}
+                className={(indx < onClick || indx < onHover) ? (`coloredStar`) : ((``))}
+                onClick={() => setOnClick(indx + 1)}
+                onMouseOver={() => setOnHover(indx + 1)}
+                onMouseOut={() => setOnClick(setOnClick)}
+              />
+            )
+          })
+          }
+        </div>
+        <div>{printEmoji()}</div>
+      </>
+    );
+  }
   // ==================== POST MY REVIEW
   function postData() {
     axios.post(api, { ...input, productId: id, "like": 0, "dislike": 0 }).then(() => {
       alert("Thank you for your review");
       setInput({});
       loadReviews();
-    })  .catch((err) => console.error("Error =>:", err));
+    }).catch((err) => console.error("Error =>:", err));
   }
   // ==================== HANDLE MY REVIES
   function handleSubmit(e) {
@@ -75,7 +109,6 @@ function Review({ id }) {
             <BiLike onClick={(e) => likeDislikeFunct(e, 1)} /> {review.like}
             <BiDislike onClick={(e) => likeDislikeFunct(e, -1)} /> {review.dislike}
             <input type="text" placeholder='Reply' />
-
           </div>
         </div>
       )
@@ -93,7 +126,10 @@ function Review({ id }) {
           <div>Review </div>
           Gmail: <input type="gmail" value={input.gmail} name='gmail' onChange={handleSubmit} /> <br />
           Comment: <input type="text" value={input.comment} name='comment' onChange={handleSubmit} /> <br />
-          Star: <input type="number" value={input.star} name='star' onChange={handleSubmit} /> <br />
+          <div>
+            {colorTheStars()}
+          </div>
+          {/* Star: <input type="number" value={input.star} name='star' onChange={handleSubmit} /> <br /> */}
           <button onClick={postData}>Post</button>
         </div>
         {/* ======================================================== */}

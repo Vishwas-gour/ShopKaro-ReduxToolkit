@@ -32,41 +32,13 @@ button {
     font-weight: 300;
     font-family: inherit;
     overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+    transition: all 0.1s cubic-bezier(0.02, 0.01, 0.47, 1);
     min-width: fit-content;
 }
 
 button:hover {
-    animation: sh0 0.5s ease-in-out both;
+   scale: 1.04;
 }
-
-@keyframes sh0 {
-    0% {
-        transform: rotate(0deg) translate3d(0, 0, 0);
-    }
-
-    25% {
-        transform: rotate(7deg) translate3d(0, 0, 0);
-    }
-
-    50% {
-        transform: rotate(-7deg) translate3d(0, 0, 0);
-    }
-
-    75% {
-        transform: rotate(1deg) translate3d(0, 0, 0);
-    }
-
-    100% {
-        transform: rotate(0deg) translate3d(0, 0, 0);
-    }
-}
-
-button:hover span {
-    animation: storm 0.7s ease-in-out both;
-    animation-delay: 0.06s;
-}
-
 
 
 
@@ -78,32 +50,19 @@ input[type="number"] {
 
 h1 {
     text-align: center;
-    color: #fff;
+    color: #333;
     padding: 0.4rem;
     margin: 1rem;
-    background-color: rgb(129, 129, 234);
-}
-/*  NAV BAr */
-.logo {
-    padding: 0.5rem 0px;
-    text-align: center;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(203, 203, 203);
+    font-size: 30px;
+    border-radius: 10px;
 }
 
-.logo img {
-    height: 4rem;
-}
 
-@media (max-width:600px) {
-
-    .logo img {
-        height: 11vw;
-    }
-}
-
-#container {
+/* #container {
+    width: 100vw;
     padding: 0 10%;
-}
+} */
 
 .section-heading {
     text-align: center;

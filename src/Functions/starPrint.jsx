@@ -5,7 +5,6 @@ import { RiMessengerLine } from "react-icons/ri";
 import { FaRegStarHalf } from "react-icons/fa6";
 
 
-
 function numbLogos(nStar) {
     switch (nStar) {
         case 1: return <TbNumber1 />;
@@ -36,7 +35,7 @@ function returnAvgStar(nStar, maxStar) {
             <>
                 {accurate}
                 {[...Array(avgStar)].map((val, i) => <FaRegStar s key={i} />)}
-                {( pointNumb > 0 ) ? (<FaRegStarHalf />) : (<></>)}
+                {(pointNumb > 0) ? (<FaRegStarHalf />) : (<></>)}
 
             </>
         )
@@ -65,4 +64,6 @@ function starPrintForCard(numberOfReviews, totalStar) {
         </div>
     )
 }
+
+
 export { starPrintForReviews, starPrintForCard };

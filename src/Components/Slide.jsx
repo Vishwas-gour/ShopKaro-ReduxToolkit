@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import Carousel from 'react-bootstrap/Carousel';
 function Slide() {
     return (
