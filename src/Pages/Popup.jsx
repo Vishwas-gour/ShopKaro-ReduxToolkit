@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import "./css/popup.css"
 import { useState } from 'react'
 function Popup() {

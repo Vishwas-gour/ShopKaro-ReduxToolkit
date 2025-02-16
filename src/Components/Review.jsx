@@ -3,6 +3,7 @@
 
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import "./css/review.css"
 import { BiLike } from "react-icons/bi";
 import { BiDislike } from "react-icons/bi";
@@ -24,6 +25,8 @@ function Review({ id }) {
   const [likeDislike, setLikeDislike] = useState(0);
   const [onClick, setOnClick] = useState(0);
   const [onHover, setOnHover] = useState(0);
+  const currentUser = useSelector((state) => state.cartSlice.currentUser);
+  const gmail = (currentUser)?(currentUser.gmail):("Guest");
 
   id = +id;
   // ==================== INITIAL RENDERING
@@ -32,8 +35,9 @@ function Review({ id }) {
     const otherReviews = `http://localhost:3000/review/?productId=${id}`;
     axios.get(otherReviews).then((res) => {
       setReviews(res.data)
-         console.log(reviews)}
-  ).catch ((err) => console.error("Error => :", err));
+      console.log(reviews)
+    }
+    ).catch((err) => console.error("Error => :", err));
   }
 
   useEffect(() => {
@@ -73,14 +77,18 @@ function Review({ id }) {
   }
   // ==================== POST MY REVIEW
   function postData() {
-    if (!input.gmail || !input.comment) {
+    if (!currentUser) {
+      alert("Please login first")
+      return;
+    }
+    if (!input.comment) {
       alert("All fields are required");
       return
     } else if (onClick === 0) {
       alert("Please give the star")
       return;
     }
-    axios.post(api, { ...input, productId: id, "like": 0, "dislike": 0, star: onClick }).then(() => {
+    axios.post(api, { ...input, gmail: currentUser.gmail, productId: id, "like": 0, "dislike": 0, star: onClick }).then(() => {
       alert("Thank you for your review");
       loadReviews();
       setInput({});
@@ -95,7 +103,7 @@ function Review({ id }) {
     const name = e.target.name;
     setInput((prev) => ({ ...prev, [name]: value }));
   }
-
+  console.log(input)
   // ==================== MANAGE LIKE/DISLIKE
   function likeDislikeFunct(e, check) {
     console.log(likeDislike)
@@ -138,33 +146,34 @@ function Review({ id }) {
 
   // ==================== COMPONENT RETURN VALUE
   return (
-    <>
+    (
+      <>
+        <div className="reviews" style={{ padding: "4rem" }}>
 
-      <div className="reviews" style={{ padding: "4rem" }}>
-
-        <div className='my-review'>
-          <div>Review </div>
-          Gmail: <input type="text" value={input.gmail || ""} name='gmail' onChange={(e) => handleSubmit(e)} /> <br />
-          Comment: <input type="text" value={input.comment || ""} name='comment' onChange={(e) => handleSubmit(e)} /> <br />
-          <div className='colorTheStars'>
-            {colorTheStars()}
+          <div className='my-review'>
+            <div>Review </div>
+            Gmail: <input type="text" value={gmail} name='gmail' /> <br />
+            Comment: <input type="text" value={input.comment || ""} name='comment' onChange={(e) => handleSubmit(e)} /> <br />
+            <div className='colorTheStars'>
+              {colorTheStars()}
+            </div>
+            {/* Star: <input type="number" value={input.star} name='star' onChange={handleSubmit} /> <br /> */}
+            <button onClick={postData}>Post</button>
           </div>
-          {/* Star: <input type="number" value={input.star} name='star' onChange={handleSubmit} /> <br /> */}
-          <button onClick={postData}>Post</button>
-        </div>
 
 
-        {/* ======================================================== */}
-        <div className='all-review'>
-          <div className='all-review-heading'>
-            All reviews
-            <StarAvg id={id} />
+          {/* =======================[ RIGHT-SIDE ]============================= */}
+          <div className='all-review'>
+            <div className='all-review-heading'>
+              All reviews
+              <StarAvg id={id} />
+            </div>
+            {allReviews()}
           </div>
-          {allReviews()}
         </div>
-      </div>
-      <div className='related-products'></div>
-    </>
+        <div className='related-products'></div>
+      </>
+    )
   );
 }
 export default Review;

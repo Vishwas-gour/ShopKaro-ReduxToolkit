@@ -24,9 +24,7 @@ dist-ssr
 *.sw?
 
 # =================================================
-1. apply star at the time of review 
 2. add popups by adnt
 3. style payment page 
-4. login form add and setinfo to slice in the form of array object change the star color according to rating 
-5. apply underline on link afte hover
-6. while giving rating show emoji according to Star
+4.forger password
+5. sign up

@@ -13,6 +13,7 @@ function Category() {
     const [select, setSelect] = useState("");
     const [allProducts, setAllProducts] = useState([]);
     const carts = useSelector((state) => state.cartSlice.cards);
+    const currentUser = useSelector((state) => state.cartSlice.currentUser);
     const productApi = `http://localhost:3000/products`;
     const dispatch = useDispatch();
 
@@ -32,7 +33,9 @@ function Category() {
             return;
         }
         dispatch(addToCart(data));
-        if (confirm("data added View card")) navigate("/cart")
+        if(currentUser){
+            if (confirm("Item added to cart. Do you want to view the cart?")) navigate("/cart")
+        }
     }
 
     // =============== GET DATA FORM CLICKED EVENT

@@ -3,7 +3,6 @@ import { TbNumber0, TbNumber1, TbNumber2, TbNumber3, TbNumber4, TbNumber5 } from
 import { LuStarOff } from "react-icons/lu";
 import { RiMessengerLine } from "react-icons/ri";
 import { FaRegStarHalf } from "react-icons/fa6";
-import './starPrint.css'
 
 
 function numbLogos(nStar) {
@@ -70,7 +69,8 @@ function otpGenerator(len) {
     for (let i = 0; i < len; i++) {
         otp += Math.trunc(Math.random() * 10);
     }
-    console.log(otp)
+    console.log(`%c${"warning"}`, 'color: red');
+    console.log( `Do not share OTP to anyone: %c${otp}`, 'color: orange');
     return otp;
 }
 

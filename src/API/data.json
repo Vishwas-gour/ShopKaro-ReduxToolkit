@@ -238,18 +238,58 @@
       "like": 0,
       "dislike": 0,
       "star": 1
+    },
+    {
+      "id": "d59c",
+      "comment": "ASD",
+      "gmail": "vishwasgour2002@gmail.com",
+      "productId": 1,
+      "like": 0,
+      "dislike": 0,
+      "star": 4
+    },
+    {
+      "id": "82ba",
+      "comment": "QWERT",
+      "gmail": "vishwasgour2002@gmail.com",
+      "productId": 1,
+      "like": 0,
+      "dislike": 0,
+      "star": 4
+    },
+    {
+      "id": "68a9",
+      "comment": "NOT GOOD",
+      "gmail": "vishwasgour2002@gmail.com",
+      "productId": 1,
+      "like": 0,
+      "dislike": 0,
+      "star": 1
+    },
+    {
+      "id": "2252",
+      "comment": "asdasd",
+      "gmail": "Sahil@gmail.com",
+      "productId": 1,
+      "like": 0,
+      "dislike": 0,
+      "star": 5
     }
   ],
   "loginInfo": [
     {
-      "id": "4302",
-      "gmail": "vishwasgour2002@gmail.com",
-      "password": 123
+      "id": "c86b",
+      "name": "Vishwas Gour",
+      "address": "Bhopal, 46003",
+      "gmail": "123@gmail.com",
+      "password": "asd"
     },
     {
-      "id": "4302",
-      "gmail": "sahilgour2002@gmail.com",
-      "password": 123
+      "id": "394e",
+      "name": "sahil gour",
+      "address": "tulsi nagar",
+      "gmail": "Sahil@gmail.com",
+      "password": "qwe"
     }
   ]
 }

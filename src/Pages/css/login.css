@@ -1,11 +1,16 @@
 .login_form {
     width: 90%;
-    max-width: 435px;
+    max-width: 600px;
+    padding: 1rem 5.3rem;
     background: #fff;
-    border-radius: 10% 0px;
-    padding: 1rem 2.3rem;
+    border-radius: 5% 0px 0px 5%;
     box-shadow: 10px 10px 20px rgba(64, 64, 64, 0.15);
     margin: auto;
+    border: 1px solid rgb(184, 184, 184);
+    max-height: 570px;
+    height: fit-content;
+    overflow: scroll;
+    scrollbar-width: thin;
 }
 
 
@@ -107,13 +112,13 @@ form .input_box {
     position: relative;
 }
 
-a {
+form a {
     text-decoration: none;
     color: #626cd6;
     font-weight: 500;
 }
 
-a:hover {
+form a:hover {
     text-decoration: underline;
 }
 
@@ -138,45 +143,45 @@ form button:hover {
     background: #4954d0;
 }
 
-#name {
+form #name {
     display: flex;
     justify-content: space-around;
 }
 
-#name input {
+form #name input {
     width: 49%;
 }
 
-#otpGenerate {
+form #otpGenerate {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
 
-#otpGenerate #otp {
+form #otpGenerate #otp {
     display: none;
     background: rgb(212, 255, 204);
     width: 40%;
     text-align: center;
 }
 
-#generate-btn {
+form #generate-btn {
     width: 100%;
 }
 
-#submit-btn {
+form #submit-btn {
     width: 100%;
     display: none;
 }
 
-#login_page {
+form #login_page {
     /* position: absolute; */
     z-index: 1;
     transition: all 0.3s ease;
 
 }
 
-#forget_page {
+form #forget_page {
     position: absolute;
     display: inline;
     z-index: 0;
@@ -184,31 +189,35 @@ form button:hover {
     transition: all 0.3s ease;
 }
 
-input:hover {
+form form input:hover {
     border: 1px solid rgb(193, 193, 193);
     box-shadow: 4px 4px 7px 2px rgb(224, 224, 224);
 }
 
 /* ================[ AFTER COPY ]================ */
-.otp-login {
+form .otp-login {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
 }
-.otp-login button{
+
+form .otp-login button {
     background-color: #ff9b37fc;
 }
-.otp-login button:hover{
-    background-color:#ff8000fc;
+
+form .otp-login button:hover {
+    background-color: #ff8000fc;
 }
-.otpInput{
+
+form .otpInput {
     text-align: center;
     letter-spacing: 10px;
     font-weight: 600;
     color: #298000fc;
 }
-.otpInput::placeholder{
+
+form .otpInput::placeholder {
     letter-spacing: 0px;
 
 }

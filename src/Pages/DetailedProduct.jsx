@@ -13,6 +13,7 @@ function DetailedProduct() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     let ans = useSelector(stata => stata.cartSlice.cards);
+    let currentUser = useSelector(stata => stata.cartSlice.currentUser);
     let cartApi = `http://localhost:3000/products/${id}`;
     // =================[ INITIAL RENDER ]=================
     function renderCarts() {
@@ -30,15 +31,13 @@ function DetailedProduct() {
         if (check) {
             if (confirm("Product is already in cart Do you want to See")) {
                 navigate(`/cart`)
-
             } else {
-
                 navigate(`/payment/${card.id}`)
             }
         }
         else {
             dispatch(addToCart(card));
-            navigate(`/payment/${card.id}`)
+            if(currentUser)navigate(`/payment/${card.id}`)
         }
     }
 
