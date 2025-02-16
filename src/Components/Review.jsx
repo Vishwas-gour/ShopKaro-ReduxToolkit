@@ -1,15 +1,22 @@
 /* eslint-disable react/prop-types */
+
+
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import "./css/review.css"
 import { BiLike } from "react-icons/bi";
 import { BiDislike } from "react-icons/bi";
 import { starPrintForReviews } from '../Functions/starPrint';
+
 import { FaStar } from "react-icons/fa"
-//  (Reiviews should be Reviews).*****************************************
+import StarAvg from './StarAvg';
 
-
-
+import e1 from '../img/emoji1.gif';
+import e2 from '../img/emoji2.gif';
+import e3 from '../img/emoji3.gif';
+import e4 from '../img/emoji4.gif';
+import e5 from '../img/emoji5.gif';
+import se1 from '../img/starEmoji.gif';
 
 function Review({ id }) {
   const [input, setInput] = useState({});
@@ -23,8 +30,10 @@ function Review({ id }) {
   const api = `http://localhost:3000/review`;
   function loadReviews() {
     const otherReviews = `http://localhost:3000/review/?productId=${id}`;
-    axios.get(otherReviews).then((res) => setReviews(res.data))
-      .catch((err) => console.error("Error => :", err));
+    axios.get(otherReviews).then((res) => {
+      setReviews(res.data)
+         console.log(reviews)}
+  ).catch ((err) => console.error("Error => :", err));
   }
 
   useEffect(() => {
@@ -33,50 +42,61 @@ function Review({ id }) {
 
 
   function printEmoji() {
-    if (onClick == 0 ||onHover == 0) return '0';
-    if (onClick == 1 ||onHover == 1) return '1';
-    if (onClick == 2 ||onHover == 2) return '2';
-    if (onClick == 3 ||onHover == 3) return '3';
-    if (onClick == 4 ||onHover == 4) return '4';
-    if (onClick == 5 ||onHover == 5) return '5';
+    if (onHover === 0) return <img src={se1} alt="not found" />;
+    if (onHover === 1) return <img src={e1} alt="not found" />;
+    if (onHover === 2) return <img src={e2} alt="not found" />;
+    if (onHover === 3) return <img src={e3} alt="not found" />;
+    if (onHover === 4) return <img src={e4} alt="not found" />;
+    if (onHover === 5) return <img src={e5} alt="not found" />;
   }
 
   // ==================== COLOR THE RATING STARS
   function colorTheStars() {
     return (
-      <>
+      <div className='star-emoji-sec'>
         <div className="star5">
           {[...Array(5)].map((_, indx) => {
             return (
+
               <FaStar key={indx}
-                className={(indx < onClick || indx < onHover) ? (`coloredStar`) : ((``))}
+                className={(indx < onHover) ? (`coloredStar`) : ((`notColored`))}
                 onClick={() => setOnClick(indx + 1)}
                 onMouseOver={() => setOnHover(indx + 1)}
-                onMouseOut={() => setOnClick(setOnClick)}
-              />
+                onMouseOut={() => setOnHover(onClick)} />
             )
           })
           }
         </div>
-        <div>{printEmoji()}</div>
-      </>
+        <div className='emojis'>{printEmoji()}</div>   {/* 😍🥰🥲😥😡😊*/}
+      </div>
     );
   }
   // ==================== POST MY REVIEW
   function postData() {
-    axios.post(api, { ...input, productId: id, "like": 0, "dislike": 0 }).then(() => {
+    if (!input.gmail || !input.comment) {
+      alert("All fields are required");
+      return
+    } else if (onClick === 0) {
+      alert("Please give the star")
+      return;
+    }
+    axios.post(api, { ...input, productId: id, "like": 0, "dislike": 0, star: onClick }).then(() => {
       alert("Thank you for your review");
-      setInput({});
       loadReviews();
+      setInput({});
+      setOnClick(0);
+      setOnHover(0);
+
     }).catch((err) => console.error("Error =>:", err));
   }
   // ==================== HANDLE MY REVIES
   function handleSubmit(e) {
-    const { name, value } = e.target;
+    const value = e.target.value;
+    const name = e.target.name;
     setInput((prev) => ({ ...prev, [name]: value }));
   }
 
-  // ==================== MANGE LIKE/DISLIKE
+  // ==================== MANAGE LIKE/DISLIKE
   function likeDislikeFunct(e, check) {
     console.log(likeDislike)
     if (check == likeDislike) {
@@ -112,40 +132,38 @@ function Review({ id }) {
           </div>
         </div>
       )
-
     });
-
   }
-  // ==================== STAR AND THERE COLORS
+  // ==================== STAR AND THEIR COLORS
 
   // ==================== COMPONENT RETURN VALUE
   return (
     <>
+
       <div className="reviews" style={{ padding: "4rem" }}>
+
         <div className='my-review'>
           <div>Review </div>
-          Gmail: <input type="gmail" value={input.gmail} name='gmail' onChange={handleSubmit} /> <br />
-          Comment: <input type="text" value={input.comment} name='comment' onChange={handleSubmit} /> <br />
-          <div>
+          Gmail: <input type="text" value={input.gmail || ""} name='gmail' onChange={(e) => handleSubmit(e)} /> <br />
+          Comment: <input type="text" value={input.comment || ""} name='comment' onChange={(e) => handleSubmit(e)} /> <br />
+          <div className='colorTheStars'>
             {colorTheStars()}
           </div>
           {/* Star: <input type="number" value={input.star} name='star' onChange={handleSubmit} /> <br /> */}
           <button onClick={postData}>Post</button>
         </div>
+
+
         {/* ======================================================== */}
         <div className='all-review'>
-          <div className='all-reciew-heading'>
-            <h3>All Reviews</h3>
-            <h3>Total Review : {reviews.length}</h3>
-            <h3>Avarage Star {0}</h3>
+          <div className='all-review-heading'>
+            All reviews
+            <StarAvg id={id} />
           </div>
           {allReviews()}
         </div>
       </div>
-      <div className='related-products'>
-
-
-      </div>
+      <div className='related-products'></div>
     </>
   );
 }

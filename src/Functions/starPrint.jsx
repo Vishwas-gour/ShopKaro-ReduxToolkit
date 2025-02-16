@@ -3,6 +3,7 @@ import { TbNumber0, TbNumber1, TbNumber2, TbNumber3, TbNumber4, TbNumber5 } from
 import { LuStarOff } from "react-icons/lu";
 import { RiMessengerLine } from "react-icons/ri";
 import { FaRegStarHalf } from "react-icons/fa6";
+import './starPrint.css'
 
 
 function numbLogos(nStar) {
@@ -16,7 +17,7 @@ function numbLogos(nStar) {
     }
 }
 
-function returnNStar(nStar) {
+function returnNStar(nStar = 4) {
     return [...Array(nStar)].map((_, i) => <FaRegStar key={i} />)
 }
 
@@ -44,7 +45,6 @@ function returnAvgStar(nStar, maxStar) {
 }
 
 function starPrintForReviews(nStar) {
-    nStar = +nStar;
     let numbLogo = numbLogos(nStar);
     let printStar = returnNStar(nStar);
     return (
@@ -65,5 +65,13 @@ function starPrintForCard(numberOfReviews, totalStar) {
     )
 }
 
+function otpGenerator(len) {
+    let otp = ""
+    for (let i = 0; i < len; i++) {
+        otp += Math.trunc(Math.random() * 10);
+    }
+    console.log(otp)
+    return otp;
+}
 
-export { starPrintForReviews, starPrintForCard };
+export { starPrintForReviews, starPrintForCard, otpGenerator };

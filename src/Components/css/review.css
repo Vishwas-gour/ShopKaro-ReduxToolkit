@@ -32,16 +32,20 @@
     border-radius: 20px;
     display: grid;
     gap: 0.3rem;
-    height: 30rem;
+    max-height: 30rem;
     overflow: scroll;
     scrollbar-width: thin;
     overflow-x: hidden;
     padding: 2rem;
 }
 
-.all-reciew-heading {
+.all-review-heading {
     display: flex;
-    justify-content: space-around;
+    justify-content:center;
+    align-items: center;
+    gap: 1rem;
+    height: fit-content;
+    font-size: 1.2rem;
 }
 
 .review-container {
@@ -58,10 +62,18 @@
     align-items: center;
 }
 
-.star {
-    display: flex;
+ .star {
+    display: flex;    
+    justify-content: space-around;
     align-items: center;
     background-color: #2a2a2a;
+    color: white;
+    border-radius: 10px;
+    padding: 0.3rem 0.8rem;
+
+}
+
+.all-review-heading .star {
     color: white;
     border-radius: 10px;
     padding: 0.3rem 0.8rem;
@@ -70,26 +82,39 @@
 .avrageStar .star {
     background-color: rgb(254, 254, 254);
     color: black;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
 }
-
 .like {
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
     .reviews {
         grid-template-columns: 1fr 2fr;
     }
 }
 
-.star5{
+.star-emoji-sec{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 2.3rem;
 }
+
+.star5{
+}
 .coloredStar{
-    color: gold;   
+    transition: all 0.2s ease;
+    color: gold; 
+}
+.notColored{
+    color:rgb(157, 157, 157);
+}
+
+.emojis{
+    height: 100px;
+}
+.emojis img{
+    height: 100%;
 }

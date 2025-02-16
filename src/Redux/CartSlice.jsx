@@ -5,6 +5,7 @@ const Slice = createSlice({
   name: "cartSlice",
   initialState: {
     cards: [],
+    currentUser: []
   },
   reducers: {
     addToCart: (state, { payload }) => {
@@ -27,14 +28,16 @@ const Slice = createSlice({
     decreQuantity: (state, { payload }) => {
 
       if (state.cards[payload].quantity == 1) {
-        if(confirm("only one item left do you want to remoce")){
-          state.cards.splice(payload,1)
+        if (confirm("only one item left do you want to remoce")) {
+          state.cards.splice(payload, 1)
         }
       }
       else state.cards[payload].quantity -= 1;
-
+    },
+    currentUserInfo: (state, { payload })=>{
+      alert(payload);
     }
   }
 });
-export const { addToCart, removeFromCart, increQuantity, decreQuantity } = Slice.actions;
+export const { addToCart, removeFromCart, increQuantity, decreQuantity, currentUserInfo } = Slice.actions;
 export default Slice.reducer;

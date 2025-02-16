@@ -9,6 +9,8 @@ import Payment from './Pages/Payment.jsx';
 import Category from './Pages/Category.jsx'
 import DetailedProduct from './Pages/DetailedProduct.jsx';
 import Popup from './Pages/Popup.jsx';
+import LoginForm from './Components/Loginform/Login.jsx';
+import RegistrationComponent from './Components/Loginform/Registration.jsx';
 function App() {
   return (
     <Router>
@@ -21,6 +23,8 @@ function App() {
           <Route path="detailedProduct/:id" element={<DetailedProduct />} />
           <Route path="payment/:id" element={<Payment />} />
           <Route path="popup" element={<Popup />} />
+          <Route path="login" element={<LoginForm/>} />
+          <Route path="registration" element={<RegistrationComponent/>} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
