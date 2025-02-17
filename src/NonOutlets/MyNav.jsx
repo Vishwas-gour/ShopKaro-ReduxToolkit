@@ -19,7 +19,7 @@ function MyNav() {
     let currentUser = useSelector(state => state.cartSlice.currentUser);
     const gmail = currentUser?.gmail || "Login";
     const address = currentUser?.address || "Address";
-    const name = currentUser?.name || "Name";
+    const name = currentUser?.name || "Login";
 
     function logout() {
         if(gmail !== "Login"){

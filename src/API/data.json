@@ -278,18 +278,11 @@
   ],
   "loginInfo": [
     {
-      "id": "c86b",
-      "name": "Vishwas Gour",
-      "address": "Bhopal, 46003",
-      "gmail": "123@gmail.com",
-      "password": "asd"
-    },
-    {
-      "id": "394e",
-      "name": "sahil gour",
-      "address": "tulsi nagar",
-      "gmail": "Sahil@gmail.com",
-      "password": "qwe"
+      "id": "cf69",
+      "name": "vishwas gour",
+      "address": "bhopal, 462003",
+      "gmail": "vishu@gmail.com",
+      "password": "123"
     }
   ]
 }

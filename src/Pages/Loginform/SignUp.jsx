@@ -3,23 +3,23 @@ import { useState } from "react";
 import { otpGenerator } from "../../Functions/starPrint";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-function SignUp() {
+function LoginForm() {
   const navigate = useNavigate();
   const [showLoginOrOTP, setShowLoginOrOTP] = useState(true);
   const [otp, setOtp] = useState({ "inputOtp": "", "sendedOtp": "" });
-  const [formInfo, setFormInfo] = useState({ "name": "", "address": "", "gmail": "", "password": "", "passwordCnf": "" });
+  const [formInfo, setFormInfo] = useState({ "name": "", "address": "", "gmail": "", "password": "", "passwordcnf": "" });
   const loginInfoApi = `http://localhost:3000/loginInfo`;
 
   function handleInput(e) {
-    let name = e.target.name;
-    let value = e.target.value;
+    let name = e.target.name.toLowerCase();
+    let value = e.target.value.toLowerCase();
     setFormInfo(pre => ({ ...pre, [name]: value }));
   }
 
   function checkOtp() {
     if (otp.inputOtp == otp.sendedOtp) {
-
-      delete formInfo.passwordCnf;
+      // ---------> Because I dont'w want to store passwordcnf in   
+      delete formInfo.passwordcnf;
       axios.post(loginInfoApi,  formInfo)
       alert("Account Created")
       navigate('/login');
@@ -32,12 +32,22 @@ function SignUp() {
   }
 
   async function checkVelidation() {
-    //==> 
-    if (!formInfo.name || !formInfo.address || !formInfo.gmail || !formInfo.password || !formInfo.passwordCnf) {
-      alert("all fielt are mendotary");
+    const userApi = `${loginInfoApi}/?gmail=${formInfo.gmail}`
+    const res = await axios.get(userApi);
+    if (res.data.length > 0) {
+      // -------> Check isUser have account 
+      if(confirm("you have already an acount try to login")){
+             navigate('/login')
+      }
       return;
-    } else if (formInfo.passwordCnf !== formInfo.password) {
+    }
+    else if (!formInfo.name || !formInfo.address || !formInfo.gmail || !formInfo.password || !formInfo.passwordcnf) {
+      console.log(formInfo)
+      alert("all feilt are mendotary");
+      return;
+    } else if (formInfo.passwordcnf !== formInfo.password) {
       alert("Passwprd not Matchin ")
+      return;
     }
     setShowLoginOrOTP(false);
     setOtp(pre => ({ ...pre, "sendedOtp": otpGenerator(4) }))
@@ -49,7 +59,6 @@ function SignUp() {
     setOtp(pre => ({ ...pre, "inputOtp": value }))
   }
 
-  console.log(otp)
   return (
     <div className="login_container">
       <div className="login_form" id="login_page">
@@ -72,7 +81,7 @@ function SignUp() {
             <input type="password" id="password" name="password" placeholder="Create password" onChange={handleInput} />
           </div>
           <div className="input_box">
-            <input type="password" id="password" name="passwordCnf" placeholder="Confirn password" onChange={handleInput} />
+            <input type="password" id="password" name="passwordcnf" placeholder="Confirn password" onChange={handleInput} />
           </div>
           {(showLoginOrOTP) ? (<button onClick={(e) => checkVelidation(e)}>Request OTP</button>) :
             (
@@ -87,4 +96,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default LoginForm;

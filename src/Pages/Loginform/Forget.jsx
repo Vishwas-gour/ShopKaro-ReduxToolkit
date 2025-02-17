@@ -1,15 +1,19 @@
 import { useState } from "react";
 import { otpGenerator } from "../../Functions/starPrint";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Forget() {
+
     const [visibleReque, setVisibleReque] = useState(true);
     const [visibleOtp, setVisibleOtp] = useState(false);
     const [visibleNewField, setVisibleNewField] = useState(false);
 
     const [otp, setOtp] = useState({ "inputOtp": "", "sendedOtp": "" });
-    const [formInfo, setFormInfo] = useState({ "gmail": "", "password": "", "passwordCnf": "" })
+    const [formInfo, setFormInfo] = useState({ "gmail": "", "password": "", "passwordcnf": "" })
+    const loginInfoApi = `http://localhost:3000/loginInfo`;
 
+    const  navigate = useNavigate();
     function handleSubmit(e) {
         e.preventDefault();
     }
@@ -29,8 +33,16 @@ function Forget() {
         }
     }
 
-    async function checkVelidation(e) {
-
+    async function checkVelidation() {
+        const userApi = `${loginInfoApi}/?gmail=${formInfo.gmail}`
+        const res = await axios.get(userApi);
+        if (res.data.length === 0) {
+            // -------> Check isUser have account 
+            if(confirm("you don,t have an account, create new")){
+                  navigate('/signUp')
+            }
+            return;
+        }
         if (!formInfo.gmail) {
             alert("all fielt are mendotary");
             return;
@@ -44,22 +56,23 @@ function Forget() {
         setOtp(pre => ({ ...pre, "inputOtp": value }))
     }
     async function checkPassword() {
-         if(formInfo.password != formInfo.passwordCnf){
+        if (formInfo.password != formInfo.passwordcnf) {
             alert("password not maching")
             return;
         }
-        else{
-        // ==================[PASSWORD UPDATED]==================
-             let api = `http://localhost:3000/loginInfo/?gmail=${formInfo.gmail}`;
-             const res = await axios.get(api);
-             const id = res.data[0].id;
-             let apiId = `http://localhost:3000/loginInfo/${id}`;
-             
-             axios.patch(apiId,{password:formInfo.password}).then(res=>{
-                alert("Password Updated")
-             });
+        else {
+            // ==================[PASSWORD UPDATED]==================
+            let api = `http://localhost:3000/loginInfo/?gmail=${formInfo.gmail}`;
+            const res = await axios.get(api);
+            const id = res.data[0].id;
+            let apiId = `http://localhost:3000/loginInfo/${id}`;
 
-         }
+            // eslint-disable-next-line no-unused-vars
+            axios.patch(apiId, { password: formInfo.password }).then(res => {
+                alert("Password Updated")
+            });
+
+        }
     }
 
     return (
@@ -72,9 +85,10 @@ function Forget() {
                         <label htmlFor="gmail">Email</label>
                         <input type="text" id="gmail" name="gmail" placeholder="Enter email address" value={formInfo.gmail} onChange={handleInput} />
                     </div>
+
                     {(visibleReque &&
                         <>
-                            <button onClick={(e) => checkVelidation(e)}>Request OTP</button>
+                            <button onClick={checkVelidation}>Request OTP</button>
                         </>
                     )}
 
@@ -92,7 +106,7 @@ function Forget() {
                                 <input type="password" id="password" name="password" placeholder="Create new password" onChange={handleInput} />
                             </div>
                             <div className="input_box">
-                                <input type="password" id="password" name="passwordCnf" placeholder="Confirn new password" onChange={handleInput} />
+                                <input type="password" id="password" name="passwordcnf" placeholder="Confirn new password" onChange={handleInput} />
                             </div>
                             <button onClick={checkPassword}>Update Password</button>
                         </>

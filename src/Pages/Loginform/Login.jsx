@@ -113,7 +113,7 @@ function LoginForm() {
             <input type="text" id="gmail" name="gmail" placeholder="Enter email address"
               onChange={(e) => handleInput(e)} value={formInfo.gmail} /> </div>
           <div className="input_box">
-            <div className="forget-password">   <label htmlFor="password">Password</label>   <a href="#">Forgot Password?</a>   </div>
+            <div className="forget-password">   <label htmlFor="password">Password</label>   <a href="#" onClick={() => navigate('/forget')}>Forgot Password?</a>   </div>
             <input type="password" id="password" name="password" placeholder="Enter your password"
               onChange={(e) => handleInput(e)} value={formInfo.password} />
           </div>
