@@ -5,7 +5,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../Redux/CartSlice';
-import StarAvg  from '../Components/StarAvg'
+import StarAvg from '../Components/StarAvg'
+import { Modal } from 'antd';
 
 function Category() {
     const navigate = useNavigate();
@@ -19,8 +20,8 @@ function Category() {
 
     // =================[ INITIAL RENDER ]=================
     useEffect(() => {
-        axios.get(productApi).then((res) =>setAllProducts(res.data))
-        .catch((err) => console.error("Error fetching products:", err));
+        axios.get(productApi).then((res) => setAllProducts(res.data))
+            .catch((err) => console.error("Error fetching products:", err));
 
     }, []);
 
@@ -29,14 +30,27 @@ function Category() {
     function addToCartFunction(data) {
         let existingItem = carts.some(item => item.id === data.id);
         if (existingItem) {
-            alert("Product already exist in the cart ");
+            Modal.confirm({
+                title: "Product already in the cart! Do you want to view the cart?",
+                onOk() {
+                    navigate("/cart")
+                }
+            });
+
             return;
         }
+
         dispatch(addToCart(data));
-        if(currentUser){
-            if (confirm("Item added to cart. Do you want to view the cart?")) navigate("/cart")
+        if (currentUser) {
+            Modal.confirm({
+                title: "Item added to cart. Do you want to view the cart?",
+                onOk() {
+                    navigate("/cart")
+                }
+            });
         }
     }
+
 
     // =============== GET DATA FORM CLICKED EVENT
     async function getCardData(id) {
@@ -47,44 +61,44 @@ function Category() {
     }
 
     // ======================={ SET PRODUCTS }========================= 
-function renderCard() {
-    return allProducts
-        .filter(product => (!input || product.names.toLowerCase().includes(input)) && (!select || product.category.toLowerCase().includes(select)))
-        .map((product) => (
-            <div className='card' product={product.id}>
-                <div className='card-img'>
-                    <img src={product.imgUrl} alt=""  onClick={() => navigate(`/detailedProduct/${product.id}`)} />
-                </div>
-                <div className='card-body'>
-                    <div className='card-title'>{product.name}</div>
-                    <div className='card-text'>{product.about}</div>
-                </div>
-                <div className='avrageStar'><StarAvg id={product.id}/></div>
-                <div className='card-footer'>
-                    <div className="card-price">INR {product.price}</div>
-                    <div className="add-to-cart">
-                        <button id={product.id} onClick={(e) => getCardData(e.target.id)} className='cart-btn'>
-                            Add To Cart
-                        </button>
+    function renderCard() {
+        return allProducts
+            .filter(product => (!input || product.names.toLowerCase().includes(input)) && (!select || product.category.toLowerCase().includes(select)))
+            .map((product) => (
+                <div className='card' product={product.id}>
+                    <div className='card-img'>
+                        <img src={product.imgUrl} alt="" onClick={() => navigate(`/detailedProduct/${product.id}`)} />
+                    </div>
+                    <div className='card-body'>
+                        <div className='card-title'>{product.name}</div>
+                        <div className='card-text'>{product.about}</div>
+                    </div>
+                    <div className='avrageStar'><StarAvg id={product.id} /></div>
+                    <div className='card-footer'>
+                        <div className="card-price">INR {product.price}</div>
+                        <div className="add-to-cart">
+                            <button id={product.id} onClick={(e) => getCardData(e.target.id)} className='cart-btn'>
+                                Add To Cart
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        ));
-}
+            ));
+    }
 
 
 
     return (
         <div className='container'>
-            {select?(<h1>
-                {select.charAt(0).toLocaleUpperCase()+select.substring(1)}
-            </h1>):(
+            {select ? (<h1>
+                {select.charAt(0).toLocaleUpperCase() + select.substring(1)}
+            </h1>) : (
                 <>
                 </>
             )}
             <div className='search-parent'>
                 <input className="search-input search" type="text" placeholder='Search Item' value={input} onChange={(e) => setInput(e.target.value.toLowerCase())} />
-                <select className="search-input category"  onChange={(e) => setSelect(e.target.value)} value={select}>
+                <select className="search-input category" onChange={(e) => setSelect(e.target.value)} value={select}>
                     <option value="">Select Catogery</option>
                     <option value="smart watch">Smart Watch</option>
                     <option value="smart mobiles">Smart Mobiles</option>

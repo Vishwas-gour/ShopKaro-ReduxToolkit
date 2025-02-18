@@ -121,168 +121,33 @@
       "names": "Apple iPhone 15 Pro Max, iPhone 15 Pro Max, iPhone 15, Pro Max, Apple phone, flagship phone"
     }
   ],
-  "review": [
-    {
-      "id": "0914",
-      "gmail": "sf",
-      "comment": "asdf",
-      "productId": 5,
-      "like": 0,
-      "dislike": 0,
-      "star": 4
-    },
-    {
-      "id": "f746",
-      "gmail": "d",
-      "comment": "s",
-      "productId": 5,
-      "like": 0,
-      "dislike": 0,
-      "star": 3
-    },
-    {
-      "id": "d308",
-      "gmail": "asfd",
-      "comment": "qwe",
-      "productId": 5,
-      "like": 0,
-      "dislike": 0,
-      "star": 5
-    },
-    {
-      "id": "0da2",
-      "gmail": "asfd",
-      "comment": "qwe",
-      "productId": 5,
-      "like": 0,
-      "dislike": 0,
-      "star": 5
-    },
-    {
-      "id": "682f",
-      "gmail": "123",
-      "comment": "123",
-      "productId": 5,
-      "like": 0,
-      "dislike": 0,
-      "star": 2
-    },
-    {
-      "id": "dd58",
-      "gmail": "123",
-      "comment": "123",
-      "productId": 5,
-      "like": 0,
-      "dislike": 0,
-      "star": 2
-    },
-    {
-      "id": "11d5",
-      "gmail": "sdf",
-      "comment": "sadf",
-      "productId": 5,
-      "like": 0,
-      "dislike": 0,
-      "star": 4
-    },
-    {
-      "id": "774d",
-      "gmail": "fsdg",
-      "comment": "asdf",
-      "productId": 5,
-      "like": 0,
-      "dislike": 0,
-      "star": 4
-    },
-    {
-      "id": "2b9e",
-      "gmail": "wer",
-      "comment": "asdf",
-      "productId": 1,
-      "like": 0,
-      "dislike": 0,
-      "star": 4
-    },
-    {
-      "id": "9cf6",
-      "gmail": "sad",
-      "comment": "asdf",
-      "productId": 1,
-      "like": 0,
-      "dislike": 0,
-      "star": 4
-    },
-    {
-      "id": "fea5",
-      "gmail": "sdfg",
-      "comment": "dfg",
-      "productId": 2,
-      "like": 0,
-      "dislike": 0,
-      "star": 5
-    },
-    {
-      "id": "430b",
-      "gmail": "asd",
-      "comment": "asdf",
-      "productId": 6,
-      "like": 0,
-      "dislike": 0,
-      "star": 4
-    },
-    {
-      "id": "37fb",
-      "gmail": "sdfgfdfsg",
-      "comment": "awesome oroduct",
-      "productId": 1,
-      "like": 0,
-      "dislike": 0,
-      "star": 1
-    },
-    {
-      "id": "d59c",
-      "comment": "ASD",
-      "gmail": "vishwasgour2002@gmail.com",
-      "productId": 1,
-      "like": 0,
-      "dislike": 0,
-      "star": 4
-    },
-    {
-      "id": "82ba",
-      "comment": "QWERT",
-      "gmail": "vishwasgour2002@gmail.com",
-      "productId": 1,
-      "like": 0,
-      "dislike": 0,
-      "star": 4
-    },
-    {
-      "id": "68a9",
-      "comment": "NOT GOOD",
-      "gmail": "vishwasgour2002@gmail.com",
-      "productId": 1,
-      "like": 0,
-      "dislike": 0,
-      "star": 1
-    },
-    {
-      "id": "2252",
-      "comment": "asdasd",
-      "gmail": "Sahil@gmail.com",
-      "productId": 1,
-      "like": 0,
-      "dislike": 0,
-      "star": 5
-    }
-  ],
   "loginInfo": [
     {
-      "id": "cf69",
-      "name": "vishwas gour",
-      "address": "bhopal, 462003",
-      "gmail": "vishu@gmail.com",
-      "password": "123"
+      "id": "af0f",
+      "name": "1",
+      "address": "1",
+      "gmail": "1",
+      "password": "1"
+    }
+  ],
+  "review": [
+    {
+      "id": "afeb",
+      "comment": "123",
+      "gmail": "1",
+      "productId": 1,
+      "like": 0,
+      "dislike": 0,
+      "star": 4
+    },
+    {
+      "id": "dc73",
+      "comment": "1",
+      "gmail": "1",
+      "productId": 1,
+      "like": 0,
+      "dislike": 0,
+      "star": 1
     }
   ]
 }

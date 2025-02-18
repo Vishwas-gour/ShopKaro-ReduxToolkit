@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-
+import { message } from 'antd';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -26,7 +26,7 @@ function Review({ id }) {
   const [onClick, setOnClick] = useState(0);
   const [onHover, setOnHover] = useState(0);
   const currentUser = useSelector((state) => state.cartSlice.currentUser);
-  const gmail = (currentUser)?(currentUser.gmail):("Guest");
+  const gmail = (currentUser) ? (currentUser.gmail) : ("Guest");
 
   id = +id;
   // ==================== INITIAL RENDERING
@@ -78,18 +78,18 @@ function Review({ id }) {
   // ==================== POST MY REVIEW
   function postData() {
     if (!currentUser) {
-      alert("Please login first")
+      message.info("You need to log in to continue.")
       return;
     }
     if (!input.comment) {
-      alert("All fields are required");
+      message.warning("All fields are required")
       return
     } else if (onClick === 0) {
-      alert("Please give the star")
+      message.warning("Rating required")
       return;
     }
     axios.post(api, { ...input, gmail: currentUser.gmail, productId: id, "like": 0, "dislike": 0, star: onClick }).then(() => {
-      alert("Thank you for your review");
+      message.success("Thank you for your review");
       loadReviews();
       setInput({});
       setOnClick(0);

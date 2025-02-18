@@ -1,3 +1,4 @@
+import { message, Modal } from 'antd';
 import { useState } from "react";
 import { otpGenerator } from "../../Functions/starPrint";
 import axios from "axios";
@@ -13,7 +14,7 @@ function Forget() {
     const [formInfo, setFormInfo] = useState({ "gmail": "", "password": "", "passwordcnf": "" })
     const loginInfoApi = `http://localhost:3000/loginInfo`;
 
-    const  navigate = useNavigate();
+    const navigate = useNavigate();
     function handleSubmit(e) {
         e.preventDefault();
     }
@@ -25,11 +26,10 @@ function Forget() {
     }
     function checkOtp() {
         if (otp.inputOtp == otp.sendedOtp) {
-            alert("right otp");
             setVisibleOtp(false);
             setVisibleNewField(true)
         } else {
-            alert("wrong otp")
+            message.error("invalide OTP")
         }
     }
 
@@ -38,15 +38,20 @@ function Forget() {
         const res = await axios.get(userApi);
         if (res.data.length === 0) {
             // -------> Check isUser have account 
-            if(confirm("you don,t have an account, create new")){
-                  navigate('/signUp')
-            }
+
+            Modal.confirm({
+                title:"you don,t have an account, create new one",
+                onOk() {
+                    navigate('/signUp')
+                }
+            });
             return;
         }
-        if (!formInfo.gmail) {
-            alert("all fielt are mendotary");
+        else if (!formInfo.gmail) {
+            message.error("All fields are mandatory. Please fill them out!");
             return;
         }
+        message.success("Verification code sended to your gmail")
         setOtp(pre => ({ ...pre, "sendedOtp": otpGenerator(4) }))
         setVisibleReque(false)
         setVisibleOtp(true)
@@ -57,7 +62,7 @@ function Forget() {
     }
     async function checkPassword() {
         if (formInfo.password != formInfo.passwordcnf) {
-            alert("password not maching")
+            message.error("passwords are not matching")
             return;
         }
         else {
@@ -69,9 +74,10 @@ function Forget() {
 
             // eslint-disable-next-line no-unused-vars
             axios.patch(apiId, { password: formInfo.password }).then(res => {
-                alert("Password Updated")
+                message.success("Password succesfuly updated")
             });
 
+            navigate('/login')
         }
     }
 
@@ -83,7 +89,7 @@ function Forget() {
 
                     <div className="input_box">
                         <label htmlFor="gmail">Email</label>
-                        <input type="text" id="gmail" name="gmail" placeholder="Enter email address" value={formInfo.gmail} onChange={handleInput} />
+                        <input type="gmail" id="gmail" name="gmail" placeholder="Enter email address" value={formInfo.gmail} onChange={handleInput} />
                     </div>
 
                     {(visibleReque &&

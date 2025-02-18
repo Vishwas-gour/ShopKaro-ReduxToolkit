@@ -17,18 +17,18 @@ function MyNav() {
     const navigate = useNavigate();
     let cart = useSelector(state => state.cartSlice.cards);
     let currentUser = useSelector(state => state.cartSlice.currentUser);
-    const gmail = currentUser?.gmail || "Login";
     const address = currentUser?.address || "Address";
     const name = currentUser?.name || "Login";
 
     function logout() {
-        if(gmail !== "Login"){
+        if(name != "Login"){
             Modal.confirm({
                 title: "Logout",
                 content: "Are you sure you want to log out?",
                 onOk() {
                     dispatch(currentUserInfo(null))
                     dispatch(removeAllFromCart())
+                    navigate('/login');
                 }
             });
             return;

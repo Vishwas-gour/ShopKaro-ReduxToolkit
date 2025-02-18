@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeFromCart, increQuantity, decreQuantity } from '../Redux/CartSlice'
 import "./css/cart.css"
+import { Modal } from 'antd';
 
 
 function Cart() {
@@ -56,16 +57,24 @@ function Cart() {
 
     // ========================[ Remove item form cart ]=============
     function removeItem(id) {
-        if (!confirm("do you want to remove Item")) {
-            return;
-        }
-        dispatch(removeFromCart(id))
+        Modal.confirm({
+            title: "do you want to remove Item",
+            onOk() {
+                dispatch(removeFromCart(id))
+            }
+        });
+
     }
     let product = sections();
     totalPrize = totalPrize.toFixed(2); // for taking 2 digits after decimal
 
     // ========================[ Calculation of Price Detail ]=================
     //==> when any item remove or quantity the price update and this useEffect render on that
+    
+    useEffect(()=>{
+        window.scrollTo(0, 0);
+    },[])
+    
     useEffect(() => {
         totalPrize = parseFloat(totalPrize).toFixed(2);
         totalProducts = parseFloat(totalProducts).toFixed(2);

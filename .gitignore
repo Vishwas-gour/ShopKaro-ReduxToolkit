@@ -23,8 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 
-# =================================================
+# =======================================
+==========
 2. add popups by adnt
 3. style payment page 
-4.forger password
-5. sign up
+4. update password navigate to login page

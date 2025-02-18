@@ -5,6 +5,7 @@ import { otpGenerator } from '../../Functions/starPrint';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { currentUserInfo } from '../../Redux/CartSlice'
+import { message, Modal } from 'antd';
 
 
 function LoginForm() {
@@ -38,25 +39,29 @@ function LoginForm() {
     const userAPI = `http://localhost:3000/loginInfo/?gmail=${formInfo.gmail}`
     const res = await axios.get(userAPI);
     if (!formInfo.gmail || !formInfo.password) {
-      alert("all fielt are mendotary");
+      message.warning("all fielt are mendotary");
       return;
     }
     else if (users) {
       const check = users.some((key) => formInfo.gmail === key.gmail)
       if (!check) {
-        if (confirm("you don't have a accout Create New")) {
-          navigate("/signUp")
-          return
-        } else return;
+
+        Modal.confirm({
+          title:"you don,t have an account, create new one",
+          onOk() {
+              navigate('/signUp')
+          },
+      });
+ return;
       } else {
         
         // ==> check password
         if (res.data[0].password != formInfo.password) {
-          alert("wrong password");
+          message.error("wrong password");
           return;
         }
 
-        alert("Verification code sended to your gmail")
+        message.success("Verification code sended to your gmail")
       }
     }
     setShowLoginOrOTP(false);
@@ -81,10 +86,10 @@ function LoginForm() {
       const res = await axios.get(userAPI);
 
       dispatch(currentUserInfo(res.data[0]));
-      alert("login succesfuly")
+      message.success("login succesfuly")
       navigate('/home');
     } else {
-      alert("wrong otp try again")
+      message.error("wrong otp try again")
     }
   }
 

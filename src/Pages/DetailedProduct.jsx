@@ -5,6 +5,7 @@ import './css/detailed.css'
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart } from '../Redux/CartSlice';
 import Review from '../Components/Review.jsx'
+import { Modal } from 'antd';
 
 
 function DetailedProduct() {
@@ -24,16 +25,23 @@ function DetailedProduct() {
 
     useEffect(() => {
         renderCarts();
+        window.scrollTo(0, 0);
     }, []);
 
     function handleBuy() {
         const check = ans.find((key) => key.id == id);
         if (check) {
-            if (confirm("Product is already in cart Do you want to See")) {
-                navigate(`/cart`)
-            } else {
-                navigate(`/payment/${card.id}`)
-            }
+
+
+            Modal.confirm({
+                title: "Product already in the cart! Do you want to view the cart?",
+                onOk() {
+                    navigate("/cart")
+                },
+                onCancel(){
+                    navigate(`/payment/${card.id}`)
+                }
+            });
         }
         else {
             dispatch(addToCart(card));

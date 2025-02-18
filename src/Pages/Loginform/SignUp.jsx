@@ -1,8 +1,8 @@
-
 import { useState } from "react";
 import { otpGenerator } from "../../Functions/starPrint";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { message, Modal } from "antd";
 function LoginForm() {
   const navigate = useNavigate();
   const [showLoginOrOTP, setShowLoginOrOTP] = useState(true);
@@ -21,10 +21,10 @@ function LoginForm() {
       // ---------> Because I dont'w want to store passwordcnf in   
       delete formInfo.passwordcnf;
       axios.post(loginInfoApi,  formInfo)
-      alert("Account Created")
+      message.success("Account succesfuly created")
       navigate('/login');
     } else {
-      alert("wrong otp try again")
+      message.error("wrong otp try again")
     }
   }
   function handleSubmit(e) {
@@ -36,19 +36,23 @@ function LoginForm() {
     const res = await axios.get(userApi);
     if (res.data.length > 0) {
       // -------> Check isUser have account 
-      if(confirm("you have already an acount try to login")){
-             navigate('/login')
-      }
+      Modal.confirm({
+        title: "you have already an acount try to login",
+        onOk() {
+          navigate('/login')
+        }
+    });
       return;
     }
     else if (!formInfo.name || !formInfo.address || !formInfo.gmail || !formInfo.password || !formInfo.passwordcnf) {
       console.log(formInfo)
-      alert("all feilt are mendotary");
+      message.warning("all fields are mendotary");
       return;
     } else if (formInfo.passwordcnf !== formInfo.password) {
-      alert("Passwprd not Matchin ")
+      message.error("passwords are not matching")
       return;
     }
+    message.success("Verification code sended to your gmail")
     setShowLoginOrOTP(false);
     setOtp(pre => ({ ...pre, "sendedOtp": otpGenerator(4) }))
   }
@@ -70,7 +74,7 @@ function LoginForm() {
           </div>
           <div className="input_box">
             <label htmlFor="gmail">Email</label>
-            <input type="text" id="gmail" name="gmail" placeholder="Enter email address" onChange={handleInput} />
+            <input type="gmail" id="gmail" name="gmail" placeholder="Enter email address" onChange={handleInput} />
           </div>
           <div className="input_box">
             <div className="address">   <label htmlFor="address">Address</label>  </div>
